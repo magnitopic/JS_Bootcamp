@@ -21,5 +21,17 @@ let getTip = function (bill, tipPorcentage = 0.2) {
 };
 
 console.log(getTip(20));
-console.log(getTip(34,.35));
-console.log(getTip(15.7,.15));
+console.log(getTip(34, 0.35));
+console.log(getTip(15.7, 0.15));
+
+// Challenge Template Strings
+
+let calculateTip = function (bill, tipPorcentage = 0.25) {
+	return `A ${tipPorcentage * 100}% tip on ${bill}€ would be ${Math.round(
+		bill + bill * tipPorcentage
+	)}€`;
+};
+
+console.log(calculateTip(100));
+console.log(calculateTip(75.43, 0.5));
+console.log(calculateTip(23, 0.1));
