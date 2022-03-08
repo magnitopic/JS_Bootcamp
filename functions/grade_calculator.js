@@ -14,12 +14,13 @@ let gradeCalc = function (score = 5, totalPosible = 10) {
 	} else if (score / totalPosible <= 1) {
 		grade = "A+";
 	}
-	return `${score}/${totalPosible} -> You got a ${grade} (${
+	return `${score}/${totalPosible} -> You got a ${grade} (${Math.round(
 		(score / totalPosible) * 100
-	}%)!`;
+	)}%)!`;
 };
 
 console.log(gradeCalc());
 console.log(gradeCalc(127, 200));
 console.log(gradeCalc(879, 1000));
 console.log(gradeCalc(97, 100));
+console.log(gradeCalc(39, 42));
