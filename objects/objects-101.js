@@ -15,12 +15,11 @@ console.log(`${myBook.title} by ${myBook.author}`);
 let person = {
 	name: "Alex",
 	age: 17,
-	location: "Spain"
+	location: "Spain",
 };
-
 
 console.log(`${person.name} is ${person.age} and lives in ${person.location}`);
 
-person.age +=1
+person.age++;
 
 console.log(`${person.name} is ${person.age} and lives in ${person.location}`);
