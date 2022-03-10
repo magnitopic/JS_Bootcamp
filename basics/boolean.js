@@ -11,7 +11,7 @@ let isFreezing = temp <= 32;
 console.log(isFreezing);
 
 // Challange
-
+// we still haven't learnt functions, but I didn’t want to duplicate code
 
 let ageCheker= function(age) {
 	if (age <= 7) {
