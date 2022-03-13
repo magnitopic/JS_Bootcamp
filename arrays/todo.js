@@ -1,5 +1,8 @@
-let toDos = ["Walk", "Work", "Coffe", "Sleep"];
+let todos = ["Walk", "Work", "Coffe", "Sleep", "Read"];
 
-console.log(`You have ${toDos.length} todos`);
-console.log(`Todo: ${toDos[toDos.length - 1]}`);
-console.log(`Todo: ${toDos[toDos.length - 2]}`);
+todos.splice(3, 1);
+todos.push("Exercice");
+todos.shift();
+
+console.log(`You have ${todos.length} todos`);
+console.log(todos);
