@@ -5,4 +5,6 @@ todos.push("Exercice");
 todos.shift();
 
 console.log(`You have ${todos.length} todos`);
-console.log(todos);
+todos.forEach((item,index) => {
+	console.log(`${index}. ${item}`);
+});
