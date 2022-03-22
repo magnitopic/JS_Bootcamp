@@ -1,4 +1,13 @@
-const notes = ["Note1", "Note2", "Note3"];
+const notes = [
+	{
+		title: "Yes",
+		body: "Okay",
+	},
+	{
+		title: "No",
+		body: "Not ok",
+	},
+];
 
 /* console.log(notes.pop());
 notes.push("My new note");
@@ -8,15 +17,11 @@ notes.unshift("My first note");
 
 notes.splice(2, 0, "Yes"); */
 
-notes[2] = "New note 3";
+const findNote = function (notes, noteTitle) {
+	return notes.find((note, index) => {
+		return note.title === noteTitle;
+	});
+};
 
-console.log(notes.length);
-console.log(notes);
-
-for (let count = 0; count >= 0; count--) {
-	console.log(count);
-}
-
-for (let count = 0; count < notes.length; count++) {
-	console.log(notes[count]);
-}
+const note = findNote(notes, "Yes");
+console.log(note);
