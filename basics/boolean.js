@@ -13,17 +13,16 @@ console.log(isFreezing);
 // Challange
 // we still haven't learnt functions, but I didn’t want to duplicate code
 
-let ageCheker= function(age) {
+let ageCheker = function (age) {
 	if (age <= 7) {
 		console.log("You are a child");
 	} else if (age >= 65) {
 		console.log("You are a senior");
-	}else{
+	} else {
 		console.log("You are an adult");
 	}
-}
+};
 
-ageCheker(69)
-ageCheker(5)
-ageCheker(43)
-
+ageCheker(69);
+ageCheker(5);
+ageCheker(43);
