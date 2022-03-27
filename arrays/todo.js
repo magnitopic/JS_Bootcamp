@@ -33,6 +33,14 @@ const deleteTodo = function (todos, value) {
 	}
 };
 
-console.log(todos);
+const getThingsToDo = function (todos) {
+	return todos.filter((todo, index) => {
+		return !todo.completed;
+	});
+};
+
+console.log(getThingsToDo(todos));
+
+/* console.log(todos);
 deleteTodo(todos, "yes");
-console.log(todos);
+console.log(todos); */
