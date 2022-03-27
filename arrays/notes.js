@@ -17,13 +17,17 @@ const notes = [
 	},
 ];
 
-/* console.log(notes.pop());
-notes.push("My new note");
-
-console.log(notes.shift());
-notes.unshift("My first note");
-
-notes.splice(2, 0, "Yes"); */
+const sortNotes = function (notes) {
+	notes.sort((a, b) => {
+		if (a.title.toLowerCase() < b.title.toLowerCase()) {
+			return -1;
+		} else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+			return 1;
+		} else {
+			return 0;
+		}
+	});
+};
 
 const findNote = function (notes, noteTitle) {
 	return notes.find((note, index) => {
@@ -43,5 +47,9 @@ const findNotes = function (notes, query) {
 	});
 };
 
-console.log(findNote(notes, "Autem distinctio quae dignissimos ea."));
-console.log(findNotes(notes, "au"));
+/* console.log(findNote(notes, "Autem distinctio quae dignissimos ea."));
+console.log(findNotes(notes, "au")); */
+
+console.log(notes);
+sortNotes(notes);
+console.log(notes);

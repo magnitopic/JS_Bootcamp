@@ -39,8 +39,23 @@ const getThingsToDo = function (todos) {
 	});
 };
 
-console.log(getThingsToDo(todos));
+const sortTodos = function (todos) {
+	todos.sort((a, b) => {
+		if (a.completed > b.completed) {
+			return 1;
+		} else if (a.completed < b.completed) {
+			return -1;
+		} else {
+			return 0;
+		}
+	});
+};
 
-/* console.log(todos);
+
+sortTodos(todos)
+console.log(todos);
+
+/* console.log(getThingsToDo(todos));
+console.log(todos);
 deleteTodo(todos, "yes");
 console.log(todos); */
