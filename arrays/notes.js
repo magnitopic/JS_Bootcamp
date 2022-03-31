@@ -37,13 +37,13 @@ const findNote = function (notes, noteTitle) {
 
 const findNotes = function (notes, query) {
 	return notes.filter((note, index) => {
-		const isTitleMtach = note.title
+		const isTitleMatch = note.title
 			.toLowerCase()
 			.includes(query.toLowerCase());
 		const isBodyMatch = note.body
 			.toLowerCase()
 			.includes(query.toLowerCase());
-		return isTitleMtach || isBodyMatch;
+		return isTitleMatch || isBodyMatch;
 	});
 };
 
