@@ -40,3 +40,9 @@ todos.forEach((todo, index) => {
 	p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
 	document.querySelector("body").appendChild(p);
 });
+
+// button to add new todo
+
+document.querySelector("button").addEventListener("click", (e) => {
+	console.log("Button clicked");
+});

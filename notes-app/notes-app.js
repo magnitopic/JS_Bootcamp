@@ -19,20 +19,6 @@ const notes = [
 
 // DOM - Document Object Model
 
-/* const p = document.querySelector("p");
-p.remove(); */
-
-// Query all and remove
-const ps = document.querySelectorAll("p");
-
-ps.forEach((p) => {
-	p.textContent = "*****";
-	// console.log(p.textContent);
-	// p.remove();
+document.querySelector("button").addEventListener("click", (e) => {
+	e.target.textContent = "Clicked button";
 });
-
-// Add a new element
-
-const newParagraph = document.createElement("p");
-newParagraph.textContent = "New paragraph from JavaScript";
-document.querySelector("body").appendChild(newParagraph);
