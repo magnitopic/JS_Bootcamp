@@ -19,6 +19,12 @@ const notes = [
 
 // DOM - Document Object Model
 
-document.querySelector("button").addEventListener("click", (e) => {
+document.querySelector("#createNote").addEventListener("click", (e) => {
 	e.target.textContent = "Clicked button";
+});
+
+document.querySelector("#removeAll").addEventListener("click", (e) => {
+	document.querySelectorAll(".note").forEach((note) => {
+		note.remove();
+	});
 });
