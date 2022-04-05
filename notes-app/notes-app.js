@@ -28,3 +28,7 @@ document.querySelector("#removeAll").addEventListener("click", (e) => {
 		note.remove();
 	});
 });
+
+document.querySelector("#searchText").addEventListener("input", (e) => {
+	console.log(e.target.value);
+});

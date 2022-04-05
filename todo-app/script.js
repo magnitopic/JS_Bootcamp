@@ -46,3 +46,7 @@ todos.forEach((todo, index) => {
 document.querySelector("button").addEventListener("click", (e) => {
 	console.log("Button clicked");
 });
+
+document.querySelector("#search").addEventListener("input",(e)=>{
+	console.log(e.target.value);
+})
