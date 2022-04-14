@@ -17,6 +17,28 @@ const notes = [
 	},
 ];
 
+const filters = {
+	searchText: "",
+};
+
+const renderNotes = function (notes, filters) {
+	const filteredNotes = notes.filter((note) => {
+		return note.title
+			.toLowerCase()
+			.includes(filters.searchText.toLowerCase());
+	});
+
+	document.querySelector("#notes").innerHTML = "";
+
+	filteredNotes.forEach((note) => {
+		const noteEl = document.createElement("p");
+		noteEl.textContent = note.title;
+		document.querySelector("#notes").appendChild(noteEl);
+	});
+};
+
+renderNotes(notes, filters);
+
 // DOM - Document Object Model
 
 document.querySelector("#createNote").addEventListener("click", (e) => {
@@ -30,5 +52,6 @@ document.querySelector("#removeAll").addEventListener("click", (e) => {
 });
 
 document.querySelector("#searchText").addEventListener("input", (e) => {
-	console.log(e.target.value);
+	filters.searchText = e.target.value;
+	renderNotes(notes, filters);
 });
