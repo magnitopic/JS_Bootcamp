@@ -35,7 +35,7 @@ const countTodos = function (todos) {
 	).textContent = `You have ${counter} todos left to complete`;
 };
 
-countTodos(todos)
+countTodos(todos);
 
 // todo search
 
@@ -51,7 +51,7 @@ let renderTodos = function (todos, filters) {
 	});
 
 	document.querySelector("#todos").innerHTML = "";
-	countTodos(filteredTodos)
+	countTodos(filteredTodos);
 
 	filteredTodos.forEach((todo, index) => {
 		let p = document.createElement("p");
@@ -67,12 +67,14 @@ document.querySelector("#search-text").addEventListener("input", (e) => {
 	renderTodos(todos, filters);
 });
 
-// button to add new todo
+// New todo
 
-document.querySelector("button").addEventListener("click", (e) => {
-	console.log("Button clicked");
-});
-
-document.querySelector("#search").addEventListener("input", (e) => {
-	console.log(e.target.value);
+document.querySelector("#newTodo").addEventListener("submit", (e) => {
+	e.preventDefault();
+	todos.push({
+		text: e.target.elements.newTodo.value,
+		completed: false,
+	});
+	e.target.elements.newTodo.value = "";
+	renderTodos(todos, filters);
 });
