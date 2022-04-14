@@ -21,24 +21,50 @@ let todos = [
 	},
 ];
 
-const countTodos = function () {
+// Todos remaning text
+
+const countTodos = function (todos) {
 	let counter = 0;
 	todos.forEach((todo) => {
 		if (!todo.completed) {
 			counter++;
 		}
 	});
-	return counter;
+	document.querySelector(
+		"h2"
+	).textContent = `You have ${counter} todos left to complete`;
 };
 
-let paragraph = document.createElement("p");
-paragraph.textContent = `You have ${countTodos()} todos left to complete`;
-document.querySelector("body").appendChild(paragraph);
+countTodos(todos)
 
-todos.forEach((todo, index) => {
-	let p = document.createElement("p");
-	p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
-	document.querySelector("body").appendChild(p);
+// todo search
+
+const filters = {
+	searchText: "",
+};
+
+let renderTodos = function (todos, filters) {
+	const filteredTodos = todos.filter((todo) => {
+		return todo.text
+			.toLowerCase()
+			.includes(filters.searchText.toLowerCase());
+	});
+
+	document.querySelector("#todos").innerHTML = "";
+	countTodos(filteredTodos)
+
+	filteredTodos.forEach((todo, index) => {
+		let p = document.createElement("p");
+		p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
+		document.querySelector("#todos").appendChild(p);
+	});
+};
+
+renderTodos(todos, filters);
+
+document.querySelector("#search-text").addEventListener("input", (e) => {
+	filters.searchText = e.target.value;
+	renderTodos(todos, filters);
 });
 
 // button to add new todo
@@ -47,6 +73,6 @@ document.querySelector("button").addEventListener("click", (e) => {
 	console.log("Button clicked");
 });
 
-document.querySelector("#search").addEventListener("input",(e)=>{
+document.querySelector("#search").addEventListener("input", (e) => {
 	console.log(e.target.value);
-})
+});
