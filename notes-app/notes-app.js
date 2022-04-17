@@ -48,7 +48,6 @@ document.querySelector("#searchText").addEventListener("input", (e) => {
 	renderNotes(notes, filters);
 });
 
-document.querySelector("#nameForm").addEventListener("submit", (e) => {
-	e.preventDefault();
-	e.target.elements.firstName.value = "";
+document.querySelector("#for-fun").addEventListener("change", (e) => {
+	console.log(e.target.checked);
 });

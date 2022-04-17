@@ -41,13 +41,25 @@ countTodos(todos);
 
 const filters = {
 	searchText: "",
+	hideCompleted: false,
 };
 
 let renderTodos = function (todos, filters) {
-	const filteredTodos = todos.filter((todo) => {
+	let filteredTodos = todos.filter((todo) => {
 		return todo.text
 			.toLowerCase()
 			.includes(filters.searchText.toLowerCase());
+	});
+
+	// We filter the values more
+
+	filteredTodos = filteredTodos.filter((todo) => {
+		return !filters.hideCompleted || !todo.completed;
+		/* if (filters.hideCompleted) {
+			return !todo.completed;
+		} else {
+			return true;
+		} */
 	});
 
 	document.querySelector("#todos").innerHTML = "";
@@ -76,5 +88,12 @@ document.querySelector("#newTodo").addEventListener("submit", (e) => {
 		completed: false,
 	});
 	e.target.elements.newTodo.value = "";
+	renderTodos(todos, filters);
+});
+
+// Checkbox
+
+document.querySelector("#hide-completed").addEventListener("change", (e) => {
+	filters.hideCompleted = e.target.checked;
 	renderTodos(todos, filters);
 });
