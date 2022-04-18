@@ -21,6 +21,27 @@ const filters = {
 	searchText: "",
 };
 
+// localStorage.setItem("location", "Madrid");
+
+// console.log(localStorage.getItem("location"));
+
+// localStorage.removeItem("location");
+
+// localStorage.clear();
+
+let user = {
+	name: "mag",
+	age: 18,
+};
+
+let userJSON = JSON.stringify(user);
+console.log(userJSON);
+localStorage.setItem("user", userJSON);
+
+userJSON = localStorage.getItem("user");
+user = JSON.parse(userJSON);
+console.log(`${user.name} is ${user.age}`);
+
 const renderNotes = function (notes, filters) {
 	const filteredNotes = notes.filter((note) => {
 		return note.title
