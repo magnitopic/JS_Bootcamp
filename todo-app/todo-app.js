@@ -1,28 +1,13 @@
-let todos = [
-	{
-		text: "Walk",
-		completed: true,
-	},
-	{
-		text: "Work",
-		completed: true,
-	},
-	{
-		text: "Coffe",
-		completed: false,
-	},
-	{
-		text: "Sleep",
-		completed: false,
-	},
-	{
-		text: "Read",
-		completed: true,
-	},
-];
+let todos = [];
+
+// read localStorage for data
+const todosJSON = localStorage.getItem("todos");
+
+if (todosJSON != null) {
+	todos = JSON.parse(todosJSON);
+}
 
 // Todos remaning text
-
 const countTodos = function (todos) {
 	let counter = 0;
 	todos.forEach((todo) => {
@@ -87,6 +72,7 @@ document.querySelector("#newTodo").addEventListener("submit", (e) => {
 		text: e.target.elements.newTodo.value,
 		completed: false,
 	});
+	localStorage.setItem("todo", JSON.stringify(todos));
 	e.target.elements.newTodo.value = "";
 	renderTodos(todos, filters);
 });
