@@ -72,7 +72,7 @@ document.querySelector("#newTodo").addEventListener("submit", (e) => {
 		text: e.target.elements.newTodo.value,
 		completed: false,
 	});
-	localStorage.setItem("todo", JSON.stringify(todos));
+	localStorage.setItem("todos", JSON.stringify(todos));
 	e.target.elements.newTodo.value = "";
 	renderTodos(todos, filters);
 });
