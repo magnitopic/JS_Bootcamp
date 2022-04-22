@@ -1,11 +1,4 @@
-let todos = [];
-
-// read localStorage for data
-const todosJSON = localStorage.getItem("todos");
-
-if (todosJSON != null) {
-	todos = JSON.parse(todosJSON);
-}
+let todos = getSavedTodos();
 
 // Todos remaning text
 const countTodos = function (todos) {
@@ -29,34 +22,6 @@ const filters = {
 	hideCompleted: false,
 };
 
-let renderTodos = function (todos, filters) {
-	let filteredTodos = todos.filter((todo) => {
-		return todo.text
-			.toLowerCase()
-			.includes(filters.searchText.toLowerCase());
-	});
-
-	// We filter the values more
-
-	filteredTodos = filteredTodos.filter((todo) => {
-		return !filters.hideCompleted || !todo.completed;
-		/* if (filters.hideCompleted) {
-			return !todo.completed;
-		} else {
-			return true;
-		} */
-	});
-
-	document.querySelector("#todos").innerHTML = "";
-	countTodos(filteredTodos);
-
-	filteredTodos.forEach((todo, index) => {
-		let p = document.createElement("p");
-		p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
-		document.querySelector("#todos").appendChild(p);
-	});
-};
-
 renderTodos(todos, filters);
 
 document.querySelector("#search-text").addEventListener("input", (e) => {
@@ -72,7 +37,7 @@ document.querySelector("#newTodo").addEventListener("submit", (e) => {
 		text: e.target.elements.newTodo.value,
 		completed: false,
 	});
-	localStorage.setItem("todos", JSON.stringify(todos));
+	saveTodos(todos);
 	e.target.elements.newTodo.value = "";
 	renderTodos(todos, filters);
 });
