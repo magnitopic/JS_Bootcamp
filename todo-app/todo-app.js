@@ -1,6 +1,6 @@
 let todos = getSavedTodos();
 
-// Todos remaning text
+// remaning Todos text
 const countTodos = function (todos) {
 	let counter = 0;
 	todos.forEach((todo) => {
@@ -8,15 +8,12 @@ const countTodos = function (todos) {
 			counter++;
 		}
 	});
-	document.querySelector(
-		"h2"
-	).textContent = `You have ${counter} todos left to complete`;
+	generateSummaryDOM(counter);
 };
 
 countTodos(todos);
 
 // todo search
-
 const filters = {
 	searchText: "",
 	hideCompleted: false,
@@ -30,7 +27,6 @@ document.querySelector("#search-text").addEventListener("input", (e) => {
 });
 
 // New todo
-
 document.querySelector("#newTodo").addEventListener("submit", (e) => {
 	e.preventDefault();
 	todos.push({

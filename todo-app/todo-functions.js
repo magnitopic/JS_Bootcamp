@@ -10,13 +10,11 @@ const getSavedTodos = function () {
 };
 
 // Save todos to localStorage
-
 const saveTodos = function (todos) {
 	localStorage.setItem("todos", JSON.stringify(todos));
 };
 
 // Render application todos based on filters
-
 let renderTodos = function (todos, filters) {
 	let filteredTodos = todos.filter((todo) => {
 		return todo.text
@@ -25,7 +23,6 @@ let renderTodos = function (todos, filters) {
 	});
 
 	// We filter the values more
-
 	filteredTodos = filteredTodos.filter((todo) => {
 		return !filters.hideCompleted || !todo.completed;
 		/* if (filters.hideCompleted) {
@@ -39,8 +36,22 @@ let renderTodos = function (todos, filters) {
 	countTodos(filteredTodos);
 
 	filteredTodos.forEach((todo, index) => {
-		let p = document.createElement("p");
-		p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
-		document.querySelector("#todos").appendChild(p);
+		document
+			.querySelector("#todos")
+			.appendChild(generateTodoDOM(todo, index));
 	});
+};
+
+// Get the DOM elements for  an individual note
+const generateTodoDOM = function (todo, index) {
+	const p = document.createElement("p");
+	p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
+	return p;
+};
+
+// Get the DOM elements for list summary
+const generateSummaryDOM = function (counter) {
+	document.querySelector(
+		"h2"
+	).textContent = `You have ${counter} todos left to complete`;
 };
