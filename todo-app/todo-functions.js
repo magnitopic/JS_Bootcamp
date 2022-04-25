@@ -49,16 +49,27 @@ const generateTodoDOM = function (todo, index) {
 	const p = document.createElement("p");
 	const delButton = document.createElement("button");
 
-	// atributes and values
-	div.setAttribute("class", "todo");
+	// checkbox
 	checkBox.setAttribute("type", "checkbox");
+	div.appendChild(checkBox);
+
+	// paragraph
 	p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
+	div.appendChild(p);
+
+	//button
 	delButton.textContent = "X";
+	delButton.addEventListener("click", () => {
+		removeTodo(todo.id);
+		saveTodos(todos);
+		renderTodos(todos, filters);
+	});
+	div.appendChild(delButton);
+
+	// div
+	div.setAttribute("class", "todo");
 
 	// add elements to div
-	div.appendChild(p);
-	div.appendChild(checkBox);
-	div.appendChild(delButton);
 	return div;
 };
 
@@ -67,4 +78,14 @@ const generateSummaryDOM = function (counter) {
 	document.querySelector(
 		"h2"
 	).textContent = `You have ${counter} todos left to complete`;
+};
+
+// remove todo
+const removeTodo = function (id) {
+	const todoIndex = todos.findIndex((todo) => {
+		return todo.id === id;
+	});
+	if (todoIndex > -1) {
+		todos.splice(todoIndex, 1);
+	}
 };

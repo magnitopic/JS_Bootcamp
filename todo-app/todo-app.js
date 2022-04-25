@@ -15,7 +15,6 @@ countTodos(todos);
 
 // todo search
 const filters = {
-	id: uuidv4(),
 	searchText: "",
 	hideCompleted: false,
 };
@@ -31,6 +30,7 @@ document.querySelector("#search-text").addEventListener("input", (e) => {
 document.querySelector("#newTodo").addEventListener("submit", (e) => {
 	e.preventDefault();
 	todos.push({
+		id: uuidv4(),
 		text: e.target.elements.newTodo.value,
 		completed: false,
 	});
