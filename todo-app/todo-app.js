@@ -15,6 +15,7 @@ countTodos(todos);
 
 // todo search
 const filters = {
+	id: uuidv4(),
 	searchText: "",
 	hideCompleted: false,
 };
