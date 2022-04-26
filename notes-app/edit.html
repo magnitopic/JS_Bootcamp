@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Edit page</title>
-</head>
-<body>
-	Edit apge
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit page</title>
+	</head>
+	<body>
+		<input
+			type="text"
+			id="note-title"
+			placeholder="Note title"
+			autofocus
+		/><br />
+		<textarea
+			id="note-body"
+			cols="30"
+			rows="10"
+			placeholder="Enter note text"
+		></textarea
+		><br />
+		<button id="remove-note">Remove note</button>
+		<a href="/notes-app/"><button>Return to notes</button></a>
+	</body>
+	<script src="notes-functions.js"></script>
+	<script src="notes-edit.js"></script>
 </html>

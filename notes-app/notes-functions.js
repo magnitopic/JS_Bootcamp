@@ -34,6 +34,11 @@ const generateNoteDOM = function (note) {
 	// remove note button
 	button.textContent = "X";
 	noteEl.appendChild(button);
+	button.addEventListener("click", (e) => {
+		removeNote(note.id);
+		saveNotes(notes);
+		renderNotes(notes, filters);
+	});
 
 	// note title text
 	if (note.title.length > 0) {
@@ -43,13 +48,6 @@ const generateNoteDOM = function (note) {
 	}
 	textEl.setAttribute("href", `./edit.html#${note.id}`);
 	noteEl.appendChild(textEl);
-
-	// listeners
-	button.addEventListener("click", (e) => {
-		removeNote(note.id);
-		saveNotes(notes);
-		renderNotes(notes, filters);
-	});
 
 	return noteEl;
 };
