@@ -51,10 +51,18 @@ const generateTodoDOM = function (todo, index) {
 
 	// checkbox
 	checkBox.setAttribute("type", "checkbox");
+	if (todo.completed === true) {
+		checkBox.checked = true;
+	} else {
+		checkBox.checked = false;
+	}
+	checkBox.addEventListener("change", (e) => {
+		changeCompleted(todo.id, e.target.checked);
+	});
 	div.appendChild(checkBox);
 
 	// paragraph
-	p.textContent = `${index + 1}. ${todo.text} - ${todo.completed}`;
+	p.textContent = `${index + 1}. ${todo.text}`;
 	div.appendChild(p);
 
 	//button
@@ -88,4 +96,17 @@ const removeTodo = function (id) {
 	if (todoIndex > -1) {
 		todos.splice(todoIndex, 1);
 	}
+};
+
+// change completed todos
+const changeCompleted = function (id, checked) {
+	const todoIndex = todos.findIndex((todo) => {
+		return todo.id === id;
+	});
+	if (todoIndex > -1) {
+		todos[todoIndex].completed = checked;
+	}
+	saveTodos(todos);
+	renderTodos(todos, filters);
+	countTodos(todos);
 };

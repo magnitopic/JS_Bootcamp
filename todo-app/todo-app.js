@@ -39,8 +39,7 @@ document.querySelector("#newTodo").addEventListener("submit", (e) => {
 	renderTodos(todos, filters);
 });
 
-// Checkbox
-
+// Checkboxes
 document.querySelector("#hide-completed").addEventListener("change", (e) => {
 	filters.hideCompleted = e.target.checked;
 	renderTodos(todos, filters);
