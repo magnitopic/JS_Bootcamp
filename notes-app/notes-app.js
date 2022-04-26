@@ -12,7 +12,7 @@ document.querySelector("#createNote").addEventListener("click", (e) => {
 		title: "",
 		body: "",
 	});
-	localStorage.setItem("notes", JSON.stringify(notes));
+	saveNotes(notes)
 	renderNotes(notes, filters);
 });
 
