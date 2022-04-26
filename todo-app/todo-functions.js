@@ -57,7 +57,7 @@ const generateTodoDOM = function (todo, index) {
 		checkBox.checked = false;
 	}
 	checkBox.addEventListener("change", (e) => {
-		changeCompleted(todo.id, e.target.checked);
+		toggleTodo(todo.id, e.target.checked);
 	});
 	div.appendChild(checkBox);
 
@@ -99,7 +99,7 @@ const removeTodo = function (id) {
 };
 
 // change completed todos
-const changeCompleted = function (id, checked) {
+const toggleTodo = function (id, checked) {
 	const todoIndex = todos.findIndex((todo) => {
 		return todo.id === id;
 	});

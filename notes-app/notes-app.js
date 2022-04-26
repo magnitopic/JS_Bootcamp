@@ -20,7 +20,3 @@ document.querySelector("#searchText").addEventListener("input", (e) => {
 	filters.searchText = e.target.value;
 	renderNotes(notes, filters);
 });
-
-document.querySelector("#for-fun").addEventListener("change", (e) => {
-	console.log(e.target.checked);
-});
