@@ -7,22 +7,19 @@
 		<title>Edit page</title>
 	</head>
 	<body>
-		<input
-			type="text"
-			id="note-title"
-			placeholder="Note title"
-			autofocus
-		/><br />
+		<input type="text" id="note-title" placeholder="Note title" autofocus />
+		<br />
 		<textarea
 			id="note-body"
 			cols="30"
 			rows="10"
 			placeholder="Enter note text"
-		></textarea
-		><br />
+		></textarea>
+		<br />
 		<button id="remove-note">Remove note</button>
 		<a href="/notes-app/"><button>Return to notes</button></a>
 	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js"></script>
 	<script src="notes-functions.js"></script>
 	<script src="notes-edit.js"></script>
 </html>

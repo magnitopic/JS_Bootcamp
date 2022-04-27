@@ -22,3 +22,20 @@ if (date1Timestamp < date2Timestamp) {
 } else {
 	console.log(date2.toString());
 }
+
+// moment library
+const now = moment();
+console.log(now.toString());
+// November 3rd, 2003
+console.log(now.format("MMMM Do, YYYY"));
+
+now.subtract(1, "month").add(13, "days");
+console.log(now.fromNow());
+
+const nowTimestamp = now.valueOf();
+console.log(nowTimestamp);
+
+// Challenge area
+const newNow = moment();
+newNow.set("date", 16).set("month", 0).set("year", 2004);
+console.log(newNow.format("MMM D, YYYY"));
