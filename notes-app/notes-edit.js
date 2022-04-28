@@ -16,11 +16,13 @@ noteBody.value = note.body;
 
 noteTitle.addEventListener("input", (e) => {
 	note.title = e.target.value;
+	note.editedAt = new Date().getTime();
 	saveNotes(notes);
 });
 
 noteBody.addEventListener("input", (e) => {
 	note.body = e.target.value;
+	note.editedAt = new Date().getTime();
 	saveNotes(notes);
 });
 
