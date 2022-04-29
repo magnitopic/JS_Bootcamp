@@ -12,8 +12,8 @@ document.querySelector("#createNote").addEventListener("click", (e) => {
 		id: id,
 		title: "",
 		body: "",
-		createdAt: new Date().getTime(),
-		editedAt: new Date().getTime(),
+		createdAt: moment().valueOf(),
+		editedAt: moment().valueOf(),
 	});
 	saveNotes(notes);
 	location.assign(`./edit.html#${id}`);
