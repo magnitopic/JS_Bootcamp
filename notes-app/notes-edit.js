@@ -18,14 +18,14 @@ dateElement.textContent = generateLastEdited(note.updatedAt);
 
 noteTitle.addEventListener("input", (e) => {
 	note.title = e.target.value;
-	note.editedAt = moment().valueOf();
+	note.updatedAt = moment().valueOf();
 	dateElement.textContent = generateLastEdited(note.updatedAt);
 	saveNotes(notes);
 });
 
 noteBody.addEventListener("input", (e) => {
 	note.body = e.target.value;
-	note.editedAt = moment().valueOf();
+	note.updatedAt = moment().valueOf();
 	dateElement.textContent = generateLastEdited(note.updatedAt);
 	saveNotes(notes);
 });
