@@ -1,5 +1,5 @@
 // Reed existing notes form LocalStorage
-const getSavedNotes = function () {
+const getSavedNotes = () => {
 	const notesJSON = localStorage.getItem("notes");
 
 	if (notesJSON != null) {
@@ -10,15 +10,13 @@ const getSavedNotes = function () {
 };
 
 // save the notes to localStorage
-const saveNotes = function (notes) {
+const saveNotes = (notes) => {
 	localStorage.setItem("notes", JSON.stringify(notes));
 };
 
 // remove a note from the list
-const removeNote = function (id) {
-	const noteIndex = notes.findIndex((note) => {
-		return note.id === id;
-	});
+const removeNote = (id) => {
+	const noteIndex = notes.findIndex((note) => return note.id === id);
 
 	if (noteIndex > -1) {
 		notes.splice(noteIndex, 1);
@@ -26,7 +24,7 @@ const removeNote = function (id) {
 };
 
 // generate the DOM structure for a note
-const generateNoteDOM = function (note) {
+const generateNoteDOM = (note) => {
 	const noteEl = document.createElement("div");
 	const textEl = document.createElement("a");
 	const button = document.createElement("button");
@@ -53,7 +51,7 @@ const generateNoteDOM = function (note) {
 };
 
 // Sort your notes by one of three ways
-const sortNotes = function (notes, sortBy) {
+const sortNotes =  (notes, sortBy) =>{
 	if (sortBy === "byEdited") {
 		return notes.sort((a, b) => {
 			if (a.updatedAt > b.updatedAt) {
@@ -91,7 +89,7 @@ const sortNotes = function (notes, sortBy) {
 };
 
 // render application notes
-const renderNotes = function (notes, filters) {
+const renderNotes = (notes, filters)=> {
 	notes = sortNotes(notes, filters.sortBy);
 
 	const filteredNotes = notes.filter((note) => {
@@ -109,6 +107,4 @@ const renderNotes = function (notes, filters) {
 };
 
 // generate the last edited message
-const generateLastEdited = function (timestamp) {
-	return `Last edited ${moment(timestamp).fromNow()}`;
-};
+const generateLastEdited = (timestamp)=> return `Last edited ${moment(timestamp).fromNow()}`;
