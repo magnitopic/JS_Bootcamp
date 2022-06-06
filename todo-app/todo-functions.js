@@ -1,5 +1,5 @@
 // Fetch existing todos from localStorage
-const getSavedTodos = function () {
+const getSavedTodos = () => {
 	const todosJSON = localStorage.getItem("todos");
 
 	if (todosJSON != null) {
@@ -10,12 +10,12 @@ const getSavedTodos = function () {
 };
 
 // Save todos to localStorage
-const saveTodos = function (todos) {
+const saveTodos = (todos) => {
 	localStorage.setItem("todos", JSON.stringify(todos));
 };
 
 // Render application todos based on filters
-let renderTodos = function (todos, filters) {
+let renderTodos = (todos, filters) => {
 	let filteredTodos = todos.filter((todo) => {
 		return todo.text
 			.toLowerCase()
@@ -43,7 +43,7 @@ let renderTodos = function (todos, filters) {
 };
 
 // Get the DOM elements for  an individual note
-const generateTodoDOM = function (todo, index) {
+const generateTodoDOM = (todo, index) => {
 	const div = document.createElement("div");
 	const checkBox = document.createElement("input");
 	const p = document.createElement("p");
@@ -82,27 +82,23 @@ const generateTodoDOM = function (todo, index) {
 };
 
 // Get the DOM elements for list summary
-const generateSummaryDOM = function (counter) {
+const generateSummaryDOM = (counter) => {
 	document.querySelector(
 		"h2"
 	).textContent = `You have ${counter} todos left to complete`;
 };
 
 // remove todo
-const removeTodo = function (id) {
-	const todoIndex = todos.findIndex((todo) => {
-		return todo.id === id;
-	});
+const removeTodo = (id) => {
+	const todoIndex = todos.findIndex((todo) => todo.id === id);
 	if (todoIndex > -1) {
 		todos.splice(todoIndex, 1);
 	}
 };
 
 // change completed todos
-const toggleTodo = function (id, checked) {
-	const todoIndex = todos.findIndex((todo) => {
-		return todo.id === id;
-	});
+const toggleTodo = (id, checked) => {
+	const todoIndex = todos.findIndex((todo) => todo.id === id);
 	if (todoIndex > -1) {
 		todos[todoIndex].completed = checked;
 	}

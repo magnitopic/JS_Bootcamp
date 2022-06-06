@@ -16,7 +16,7 @@ const saveNotes = (notes) => {
 
 // remove a note from the list
 const removeNote = (id) => {
-	const noteIndex = notes.findIndex((note) => return note.id === id);
+	const noteIndex = notes.findIndex((note) => note.id === id);
 
 	if (noteIndex > -1) {
 		notes.splice(noteIndex, 1);
@@ -51,7 +51,7 @@ const generateNoteDOM = (note) => {
 };
 
 // Sort your notes by one of three ways
-const sortNotes =  (notes, sortBy) =>{
+const sortNotes = (notes, sortBy) => {
 	if (sortBy === "byEdited") {
 		return notes.sort((a, b) => {
 			if (a.updatedAt > b.updatedAt) {
@@ -89,7 +89,7 @@ const sortNotes =  (notes, sortBy) =>{
 };
 
 // render application notes
-const renderNotes = (notes, filters)=> {
+const renderNotes = (notes, filters) => {
 	notes = sortNotes(notes, filters.sortBy);
 
 	const filteredNotes = notes.filter((note) => {
@@ -107,4 +107,4 @@ const renderNotes = (notes, filters)=> {
 };
 
 // generate the last edited message
-const generateLastEdited = (timestamp)=> return `Last edited ${moment(timestamp).fromNow()}`;
+const generateLastEdited = (timestamp) => `Last edited ${moment(timestamp).fromNow()}`;

@@ -1,7 +1,7 @@
 let todos = getSavedTodos();
 
 // remaning Todos text
-const countTodos = function (todos) {
+const countTodos = (todos)=> {
 	let counter = 0;
 	todos.forEach((todo) => {
 		if (!todo.completed) {
