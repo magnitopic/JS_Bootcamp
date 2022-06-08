@@ -1,4 +1,8 @@
 let gradeCalc = function (score = 5, totalPosible = 10) {
+	if (typeof score != "number" || typeof totalPosible != "number") {
+		throw Error("Passed value is not a number");
+	}
+
 	if (score / totalPosible <= 0.59) {
 		grade = "F";
 	} else if (score / totalPosible <= 0.69) {
@@ -19,8 +23,12 @@ let gradeCalc = function (score = 5, totalPosible = 10) {
 	)}%)!`;
 };
 
-console.log(gradeCalc());
-console.log(gradeCalc(127, 200));
-console.log(gradeCalc(879, 1000));
-console.log(gradeCalc(97, 100));
-console.log(gradeCalc(39, 42));
+try {
+	console.log(gradeCalc());
+	console.log(gradeCalc(127, 200));
+	console.log(gradeCalc(879, 1000));
+	console.log(gradeCalc(97, 100));
+	console.log(gradeCalc(39, 42));
+} catch (e) {
+	console.log(e.message);
+}
