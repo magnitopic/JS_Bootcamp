@@ -5,7 +5,7 @@ const noteBody = document.querySelector("#note-body");
 const removeElement = document.querySelector("#remove-note");
 const dateElement = document.querySelector("#last-edited");
 
-let note = notes.find((note) => return note.id === noteId);
+let note = notes.find((note) => note.id === noteId);
 if (note === undefined) {
 	location.assign("/notes-app");
 }
@@ -39,7 +39,7 @@ window.addEventListener("storage", (e) => {
 		notes = JSON.parse(e.newValue);
 
 		// duplicate code
-		let note = notes.find((note) =>return note.id === noteId);
+		let note = notes.find((note) => note.id === noteId);
 		if (note === undefined) {
 			location.assign("/notes-app");
 		}

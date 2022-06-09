@@ -1,10 +1,9 @@
 // Reed existing notes form LocalStorage
 const getSavedNotes = () => {
 	const notesJSON = localStorage.getItem("notes");
-
-	if (notesJSON != null) {
-		return JSON.parse(notesJSON);
-	} else {
+	try {
+		return notesJSON ? JSON.parse(notesJSON) : [];
+	} catch (e) {
 		return [];
 	}
 };
@@ -17,7 +16,6 @@ const saveNotes = (notes) => {
 // remove a note from the list
 const removeNote = (id) => {
 	const noteIndex = notes.findIndex((note) => note.id === id);
-
 	if (noteIndex > -1) {
 		notes.splice(noteIndex, 1);
 	}
