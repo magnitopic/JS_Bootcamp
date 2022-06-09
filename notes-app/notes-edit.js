@@ -1,3 +1,5 @@
+"use strict";
+
 const noteId = location.hash.substring(1);
 let notes = getSavedNotes();
 const noteTitle = document.querySelector("#note-title");

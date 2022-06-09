@@ -1,3 +1,5 @@
+"use strict";
+
 // Reed existing notes form LocalStorage
 const getSavedNotes = () => {
 	const notesJSON = localStorage.getItem("notes");
