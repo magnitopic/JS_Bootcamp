@@ -22,6 +22,11 @@ Person.prototype.setName = function (fullName) {
 };
 
 const me = new Person("Mag", "nitopic", 18, ["Teaching", "Biking"]);
+
+me.getBio = function () {
+	return "This is fake!";
+};
+
 me.setName("Alex Turner");
 console.log(me.getBio());
 
